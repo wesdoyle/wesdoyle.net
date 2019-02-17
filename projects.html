@@ -4,6 +4,7 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+        @import url('https://fonts.googleapis.com/css?family=Noto+Serif');
 
         body {
             margin:8px;
@@ -42,6 +43,7 @@
         }
 
         .main {
+            padding: 32px;
             flex: 1;
             order: 2;
         }
@@ -115,6 +117,73 @@
 
         #about {
             padding: 12px 0;
+        }
+
+        #fiction {
+            display: inline-block;
+            background-color: #a26fbf;
+            min-height: 10px;
+            min-width: 10px;
+        }
+
+        #nonfiction {
+            display: inline-block;
+            background-color: #1b9e9e;
+            min-height: 10px;
+            min-width: 10px;
+        }
+
+        .nonfiction {
+            color: #1b9e9e;
+        }
+
+        .fiction {
+            color: #a26fbf;
+        }
+
+        .bookCategories {
+            padding: 12px;
+        }
+
+        .book {
+            color: #555;
+            display: inline-block;
+            margin-bottom: 6px;
+            margin-top: 18px;
+            font-size: 1.2em;
+        }
+
+        .title {
+        }
+
+        .bookReview {
+            padding-left: 20px;
+            width: 75%;
+        }
+
+        .project {
+            padding-bottom: 24px;
+        }
+
+        .projLogo {
+            padding: 12px;
+            height: 32px;
+        }
+
+        .imgLogo {
+            height:100%;
+        }
+
+        .quote {
+            background-color: #efeff0;
+            margin-top: 36px;
+            padding: 24px 64px 24px 36px;
+            color: #2c333b;
+            font-family: 'Noto Serif', serif;
+            font-size: 1.2em;
+            font-style: italic;
+            border-left: 12px solid #468dd4;
+            line-height: 1.5em;
         }
 
         .cursor-wrapper {
@@ -203,7 +272,40 @@
             <section class="content">
                 <div class="columns">
                     <main class="main">
-                        <h2>Posts</h2>
+                        <h2>Current Projects</h2>
+                        <div class="project">
+                            <div class="projLogo">
+                                    <img src="static/yt-logo.png" class="imgLogo">
+                            </div>
+                            <h3>YouTube Channel [<a href="https://www.youtube.com/channel/UCfniixfhHqpIGbU7z2JCNJw?view_as=subscriber" target="#" class="ext">Link</a>]</h3>
+                            <p>
+                                I record and produce videos for a software engineering YouTube channel with 16K+ subscibers.
+                                Most content features building real-world applications from scratch using Python, ASP.NET, Javascript.
+                                I also make videos about design patterns, machine learning concepts, unit testing, and algorithms.
+                            </p>
+                        </div>
+
+                        <div class="project">
+                            <div class="projLogo">
+                                <img src="static/bitwise.png" class="imgLogo">
+                            </div>
+                            <h3>Bitwise Podcast [<a href="https://bitwisepodcast.com" target="#" class="ext">Link</a>]</h3>
+                                <p>
+                                    I created and record a podcast about the history of computer science called The Bitwise Podcast.
+                                    The podcast is available on Apple iTunes, Spotify, and SoundCloud.
+                                </p>
+                        </div>
+
+                        <div class="project">
+                            <div class="projLogo">
+                                <img src="./static/pd-logo.png" class="imgLogo">
+                            </div>
+                            <h3>Productive Dev [<a href="https://www.productivedev.com" target="#" class="ext">Link</a>]</h3>
+                            <p>
+                                I run a small business called Productive Dev, where I provide premium video-based
+                                software development courses.
+                            </p>
+                        </div>
                     </main>
 
                     <aside class="sidebar">
