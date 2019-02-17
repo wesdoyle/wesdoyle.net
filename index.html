@@ -1,68 +1,246 @@
 <!doctype html>
 <html lang="en">
     <title>Wes Doyle</title>
+
     <style>
-    body {
-        font-family: "Consolas", monospace;
-        display: grid;
-        grid-template-areas:
-            "header header header"
-            "nav article info"
-            "nav footer footer";
-        grid-template-rows: 80px 1fr 70px;
-        grid-template-columns: 20% 1fr 15%;
-        grid-row-gap: 10px;
-        grid-column-gap: 10px;
-        height: 100vh;
-        margin: 0;
-    }
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
-    header, footer, article, nav, div {
-        padding: 1.2em;
-        background: white;
-    }
-
-    #pageHeader {
-        grid-area: header;
-    }
-
-    #pageFooter {
-        grid-area: footer;
-    }
-
-    #mainArticle {
-        grid-area: article;
-    }
-
-    #mainNav {
-        grid-area: nav;
-    }
-
-    #info {
-        grid-area: info;
-    }
-
-    /* Stack the layout on small devices/viewports. */
-
-    @media all and (max-width: 575px) {
         body {
-            grid-template-areas:
-                "header"
-                "article"
-                "info"
-                "nav"
-                "footer";
-            grid-template-rows: 80px 1fr 70px 1fr 70px;
-            grid-template-columns: 1fr;
+            margin:8px;
+            font-family: "Roboto Mono", monospace;
+            font-size: 12px;
         }
-    }
+
+        h1, h2, h3, h4 {
+            color: #f55050;
+        }
+
+        .wrapper {
+            margin: 36px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header .footer {
+            display: flex;
+            flex-direction: row;
+            height: 50px;
+            color: #fff;
+        }
+
+        .content {
+            margin-top: 12px;
+            display: flex;
+            flex: 1;
+            color: #000;
+        }
+
+        .columns{
+            display: flex;
+            flex:1;
+        }
+
+        .main {
+            flex: 1;
+            order: 2;
+        }
+
+        .sidebar {
+            width: 30%;
+            order: 3;
+        }
+
+        .header {
+            background-color: #fff;
+            display: inline;
+        }
+
+        .navBar {
+            display: inline;
+            font-size: 1.2em;
+        }
+
+        .navBar ul {
+            color: #3fa2a6;
+            display: inline-block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navBar ul li {
+            display: inline-block;
+            padding: 4px 16px;
+        }
+
+        .navBar a {
+            font-size: 1.2em;
+            text-decoration: none;
+            padding: 0.5 1.2em;
+            color: #468dd4;
+        }
+
+        #wes-console {
+            color: #2c333b!important;
+        }
+
+        .icons {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .iconImg {
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        .iconContainer {
+            flex: 1;
+            display: inline-block;
+            padding: 20px;
+            height: 36px;
+            width: 36px;
+        }
+
+        .profilePic {
+            width: 100%;
+        }
+
+        .profileContainer {
+            padding-left: 24px;
+            width: 256px;
+            border-left: 1px solid #ddd;
+        }
+
+        #about {
+            padding: 12px 0;
+        }
+
+        .cursor-wrapper {
+            display: inline;
+            padding-top: -14px;
+        }
+
+        .blinking-cursor {
+            display: inline-block;
+            margin-left: .4em;
+            font-size: 1.8em;
+            color: #468dd4;
+            -webkit-animation: 2s blink infinite;
+            -moz-animation: 2s blink infinite;
+            -ms-animation: 2s blink infinite;
+            -o-animation: 2s blink infinite;
+            animation: 2s blink infinite;
+        }
+
+        @keyframes "blink" {
+            0% {
+                opacity: 1;
+            }
+            75% {
+                opacity: .21;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            75% {
+                opacity: .21;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes "blink" {
+            0% {
+                opacity: 1;
+            }
+            75% {
+                opacity: .21;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-o-keyframes "blink" {
+            0% {
+            0% {
+                opacity: 1;
+            }
+            75% {
+                opacity: .21;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 
     <body>
-        <header id="pageHeader">Wes Doyle</header>
-        <article id="mainArticle"></article>
-        <nav id="mainNav"></nav>
-        <div id="info"></div>
-        <footer id="pageFooter"></footer>
+
+        <div class="wrapper">
+            <nav class="header">
+                <div class="navBar">
+                    <a href="#" id="wes-console">wes_doyle ><div class="cursor-wrapper"><span class="blinking-cursor">_</span></a>
+                    <ul>
+                        <li><a href="#">Home</a></li> /
+                        <li><a href="#">Reading List</a></li> /
+                        <li><a href="#">Current Projects</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <hr>
+
+            <section class="content">
+                <div class="columns">
+                    <main class="main">
+                        <h2>Posts</h2>
+                    </main>
+
+                    <aside class="sidebar">
+                        <div class="profileContainer">
+                            <h2>About</h2>
+                                <img src="./static/wes.png" alt="" class="profilePic"></img>
+                                <p id="about">My current engineering interests include natural language processing, image and video segmentation, and search. 
+                                <br><br>
+                                I produce videos on YouTube about software development and hike in my spare time.</p>
+                            <h2>External Links</h2>
+                            <div class="icons">
+                                <div class="iconContainer">
+                                    <a href="https://github.com/wesdoyle" target="#">
+                                        <img src="./static/001-cat.png" alt="my GitHub page" class="iconImg"></img>
+                                    </a>
+                                </div>
+                                <div class="iconContainer">
+                                    <a href="https://stackoverflow.com/users/5278004/wes-doyle" target="#">
+                                        <img src="./static/002-overflow.png" alt="my StackOverflow profile" class="iconImg"></img>
+                                    </a>
+                                </div>
+                                <div class="iconContainer">
+                                    <a href="https://www.youtube.com/channel/UCfniixfhHqpIGbU7z2JCNJw" target="#">
+                                        <img src="./static/youtube-logo.png" alt="my YouTube channel" class="iconImg"></img>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <footer class="footer">
+                &copy; 2019 Wes Doyle
+            </footer>
+
+        </div>
+
     </body>
 </html>
