@@ -41,7 +41,7 @@ hr {
 }
 
 .main {
-    padding: 32px;
+    padding: 0px 32px;
     flex: 1;
     order: 2;
 }
