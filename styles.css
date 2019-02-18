@@ -9,6 +9,11 @@ h1, h2, h3, h4 {
     color: #f55050;
 }
 
+hr {
+    border-top: 1px solid #ccc;
+    margin-top: 18px;
+}
+
 .wrapper {
     margin: 36px;
     min-height: 100vh;
@@ -157,15 +162,14 @@ h1, h2, h3, h4 {
 }
 
 .quote {
-    background-color: #fafafe;
+    background-color: #f9f9fa;
     margin-top: 36px;
     padding: 24px 64px 24px 36px;
+    line-height: 1.5em;
     color: #2c333b;
     font-family: 'Noto Serif', serif;
-    font-size: 1.2em;
-    font-style: italic;
-    border-left: 12px solid #468dd4;
-    line-height: 1.5em;
+    /* font-style: italic;*/
+    border-left: 10px solid #468dd4;
 }
 
 /* Current Projects */
