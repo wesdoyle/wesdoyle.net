@@ -67,6 +67,7 @@ th {
 
 .code-block {
     font-family: "Roboto Mono", monospace;
+    font-size: 0.8rem;
     background-color: #202A31;
     color: #C5CBDB;
     padding: 12px;
