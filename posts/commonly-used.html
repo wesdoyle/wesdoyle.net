@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<title>Wes Doyle</title>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Roboto+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+<body>
+<div class="wrapper">
+    <nav class="header">
+        <div class="navBar">
+            <a href="https://wesdoyle.net" id="wes-console">wes_doyle >
+                <div class="cursor-wrapper">
+                    <span class="blinking-cursor">_</span>
+                </div>
+            </a>
+            <ul>
+                <li><a href="https://wesdoyle.net">Home</a></li> /
+                <li><a href="reading.html">Reading List</a></li> /
+                <li><a href="projects.html">Current Projects</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <hr>
+
+    <section class="content-article">
+        <main class="main">
+            <h2>Index of Commonly Used Commands</h2>
+            <div class="article">
+                <p>Quick reference to useful day-to-day commands</p>
+
+                <h3>scp</h3>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-header-content">Local => Remote</div>
+                    </div>
+                    $ scp local_file.txt -i path_to_secret.pem remote_username@10.10.0.2:/remote/directory
+                    <br />
+                    <br />
+                    <div class="code-header">
+                        <div class="code-header-content">Remote => Local</div>
+                    </div>
+                    $ scp -i path_to_secret.pem remote_username@10.10.0.2:/remote/file.txt /local/directory
+                    <br />
+                    <br />
+                    <div class="code-header">
+                        <div class="code-header-content">Remote => Remote</div>
+                    </div>
+                    $ scp user1@host_1.com:/files/file.txt user2@host_2.com:/files
+                </div>
+
+                <h3>ssh</h3>
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-header-content">Generate SSH Key</div>
+                    </div>
+                    $ ssh-keygen -t rsa -b 4096 -C "wes@example.com"
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-header-content">SSH Config (macOS) ~/.ssh/config</div>
+                    </div>
+                    <div class="identifier">Host *</div>
+                    <div>&nbsp;&nbsp;AddKeysToAgent yes</div>
+                    <div>&nbsp;&nbsp;UseKeychain yes</div>
+                    <div>&nbsp;&nbsp;IdentityFile ~/.ssh/id_rsa</div>
+
+                    <div class="code-header">
+                        <div class="code-header-content">Add SSH private key to ssh-agent and store passphrase in keychain</div>
+                    </div>
+                    $ ssh-add -K ~/.ssh/id_rsa
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="code-header-content">Background SSH session with port forwarding</div>
+                    </div>
+                    <div class="identifier">Host foo</div>
+                    <div>&nbsp;&nbsp;Hostname [public ipv4]</div>
+                    <div>&nbsp;&nbsp;User [user]</div>
+                    <div>&nbsp;&nbsp;IdentityFile [path_to_secret.pem]</div>
+
+                    <br/>
+
+                    $ ssh -NfL 9999:localhost:8888 foo
+                </div>
+
+                ^ This is useful for running remote jupyter notebooks, for example.
+            </div>
+        </main>
+    </section>
+</div>
+</body>
+</html>
+
