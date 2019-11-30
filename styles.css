@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
+
 /* Main content */
 body {
     margin:8px;
     font-size: 16px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 h1 {
@@ -247,6 +249,7 @@ th {
 }
 
 .title {
+    font-weight: bold;
 }
 
 .bookReview {
