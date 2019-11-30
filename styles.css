@@ -259,7 +259,7 @@ th {
 
 .quote {
     background-color: #f9f9fa;
-    margin-top: 36px;
+    margin: 8px 0;
     padding: 24px 64px 24px 36px;
     line-height: 1.5em;
     color: #2c333b;
