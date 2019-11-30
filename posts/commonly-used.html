@@ -27,68 +27,67 @@
 
     <section class="content-article">
         <main class="main">
-            <h2>Index of Commonly Used Commands</h2>
+            <h1>Index of Commonly Used Commands</h1>
             <div class="article">
-                <p>Quick reference to useful day-to-day commands</p>
+                <p>Quick reference for useful day-to-day commands</p>
 
-                <h3>scp</h3>
+                <hr />
+
+                <h2>scp</h2>
+                <strong>Local => Remote</strong>
                 <div class="code-block">
-                    <div class="code-header">
-                        <div class="code-header-content">Local => Remote</div>
-                    </div>
                     $ scp local_file.txt -i path_to_secret.pem remote_username@10.10.0.2:/remote/directory
-                    <br />
-                    <br />
-                    <div class="code-header">
-                        <div class="code-header-content">Remote => Local</div>
-                    </div>
+                </div>
+
+                <strong>Remote => Local</strong>
+                <div class="code-block">
                     $ scp -i path_to_secret.pem remote_username@10.10.0.2:/remote/file.txt /local/directory
-                    <br />
-                    <br />
-                    <div class="code-header">
-                        <div class="code-header-content">Remote => Remote</div>
-                    </div>
+                </div>
+
+                <strong>Remote => Remote</strong>
+                <div class="code-block">
                     $ scp user1@host_1.com:/files/file.txt user2@host_2.com:/files
                 </div>
 
-                <h3>ssh</h3>
+                <hr />
+
+                <h2>ssh</h2>
+                <strong>Generate SSH Key</strong>
                 <div class="code-block">
-                    <div class="code-header">
-                        <div class="code-header-content">Generate SSH Key</div>
-                    </div>
                     $ ssh-keygen -t rsa -b 4096 -C "wes@example.com"
                 </div>
 
+                <strong>SSH Config (macOS)</strong>
                 <div class="code-block">
-                    <div class="code-header">
-                        <div class="code-header-content">SSH Config (macOS) ~/.ssh/config</div>
-                    </div>
+                    <div class="comment"># ~/.ssh/config</div>
+                    <br />
                     <div class="identifier">Host *</div>
                     <div>&nbsp;&nbsp;AddKeysToAgent yes</div>
                     <div>&nbsp;&nbsp;UseKeychain yes</div>
                     <div>&nbsp;&nbsp;IdentityFile ~/.ssh/id_rsa</div>
+                </div>
 
-                    <div class="code-header">
-                        <div class="code-header-content">Add SSH private key to ssh-agent and store passphrase in keychain</div>
-                    </div>
+                <strong>
+                    Add SSH private key to ssh-agent and store passphrase in keychain
+                </strong>
+                <div class="code-block">
                     $ ssh-add -K ~/.ssh/id_rsa
                 </div>
 
+                <strong>
+                    Background SSH session with port forwarding.
+                    This is useful for running remote jupyter notebooks, for example.
+                </strong>
                 <div class="code-block">
-                    <div class="code-header">
-                        <div class="code-header-content">Background SSH session with port forwarding</div>
-                    </div>
+                    <div class="comment"># ~/.ssh/config</div>
+                    <br />
                     <div class="identifier">Host foo</div>
                     <div>&nbsp;&nbsp;Hostname [public ipv4]</div>
                     <div>&nbsp;&nbsp;User [user]</div>
                     <div>&nbsp;&nbsp;IdentityFile [path_to_secret.pem]</div>
 
-                    <br/>
-
                     $ ssh -NfL 9999:localhost:8888 foo
                 </div>
-
-                ^ This is useful for running remote jupyter notebooks, for example.
             </div>
         </main>
     </section>

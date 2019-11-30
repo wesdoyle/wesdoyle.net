@@ -5,8 +5,24 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3, h4 {
-    color: #f55050;
+h1 {
+    color: #5050f5;
+    font-size: 32px;
+}
+
+h2 {
+    color: #469D90;
+    font-size: 26px;
+}
+
+h3 {
+    color: #333;
+    font-size: 22px;
+}
+
+h4 {
+    color: #333;
+    font-size: 18px;
 }
 
 hr {
@@ -72,7 +88,7 @@ th {
     color: #C5CBDB;
     padding: 12px;
     margin: 12px 0;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 .constant {
@@ -134,8 +150,8 @@ th {
 }
 
 .navBar {
-    display: inline;
-    font-size: 1.2em;
+    display: inline-block;
+    font-size: 0.9em;
 }
 
 .navBar ul {

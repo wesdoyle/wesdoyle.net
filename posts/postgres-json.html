@@ -27,7 +27,7 @@
 
     <section class="content-article">
         <main class="main">
-            <h2>Malformed Data Parsing adventures In Postgres</h2>
+            <h1>Malformed Data Parsing adventures In Postgres</h1>
             <div class="article">
                 <p>Sometimes the trickiest part of an ETL problem is transforming the raw data you have into a useful format.  In this post, I'll walk through an interesting data serialization problem, and explore a few Postgres functions that I leveraged.</p>
                 <p>I was recently working on a project involving some data containing malformed JSON (we'll look at the format in a moment) stored in several Postgres database tables as text.  I'm not sure how the data was serialized into this format when it was originally loaded, but the end goal of this project involved writing a number of database triggers and functions that parsed the tables containing this raw data and inserting transformed, new data into other tables.</p>
