@@ -88,6 +88,25 @@
 
                     $ ssh -NfL 9999:localhost:8888 foo
                 </div>
+
+
+                <h2>psql</h2>
+                <strong>useful meta-commands</strong>
+                <div class="code-block">
+                    $ <div class="constant">\l</div><div class="comment"> # list databases</div>
+                    $ <div class="constant">\c orders</div><div class="comment"> # switch to database 'orders'</div>
+                    $ <div class="constant">\dt</div><div class="comment"> # list tables</div>
+                    $ <div class="constant">\dt</div><div class="comment"> # list tables</div>
+                    $ <div class="constant">\conninfo</div><div class="comment"> # echo connection info</div>
+                    $ <div class="constant">\des</div><div class="comment"> # list foreign servers</div>
+                    $ <div class="constant">\dew</div><div class="comment"> # list foreign data wrappers</div>
+                    $ <div class="constant">\?</div><div class="comment"> # get meta-command help</div>
+                </div>
+
+                <strong>connection params</strong>
+                <div class="code-block">
+                    $ <div class="constant">psql -h [host] -p [port] -d [db] -U [user]</div>
+                </div>
             </div>
         </main>
     </section>
