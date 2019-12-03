@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<title>Wes Doyle</title>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Roboto+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+<body>
+<div class="wrapper">
+    <nav class="header">
+        <div class="navBar">
+            <a href="https://wesdoyle.net" id="wes-console">wes_doyle >
+                <div class="cursor-wrapper">
+                    <span class="blinking-cursor">_</span>
+                </div>
+            </a>
+            <ul>
+                <li><a href="https://wesdoyle.net">Home</a></li> /
+                <li><a href="https://wesdoyle.net/reading.html">Reading List</a></li> /
+                <li><a href="https://wesdoyle.net/projects.html">Current Projects</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <hr>
+
+    <section class="content-article">
+        <main class="main">
+            <h1>AWS CloudFormation template reference</h1>
+            <div class="article">
+                <p>Quick references to CloudFormation templates</p>
+
+              <h2>Basic syntax example EC2 + Security Group</h2>
+                <pre class="code-block">
+<span class="constant">Parameters:</span>
+  Ec2Type:
+    Type: String
+    Default: t2.micro
+      AllowedValues:  <span class="comment"># Creates drop-down in template upload wizard</span>
+        - t2.micro
+        - m1.small
+        - m1.large
+    Description:
+      EC2 Instance Type
+
+<span class="constant">Mappings:</span>
+  SomeRegionMapping:
+    us-east-1:
+      foo: bar
+    us-west-1:
+      bar: quux
+
+<span class="constant">Resources:</span>
+  <span class="identifier">Ec2Instance:</span>
+    Type: AWS::EC2::Instance
+    Properties:
+    InstanceType: <span class="operator">!Ref</span> Ec2Type<span class="comment"> # Intrinsic function `!Ref` points to template Parameters</span>
+    ImageId: ami-467ca739
+    Tags:
+      - Key: Env
+      Value: Development
+      - Key: Name
+      Value: <span class="operator">!Ref</span> AWS::Region<span class="comment"> # Intrinsic function `!Ref` with Pseudo Parameter</span>
+      - Key: SomeMappedValue
+        Value: <span class="operator">!FindInMap</span><span class="comment"> # Intrinsic function references template Mappings</span>
+        - SomeRegionMapping
+        - <span class="operator">!Ref</span> AWS::Region
+        - foo <span class="comment"># In this template would map to value 'bar'</span>
+    SecurityGroups:
+    - !Ref BasicSecurityGroup
+
+  <span class="identifier">BasicSecurityGroup:</span>
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+    GroupDescription: Enable SSH from anywhere
+    SecurityGroupIngress:
+    - IpProtocol: tcp
+    FromPort: 22
+    ToPort: 22
+    CidrIp: 0.0.0.0/0
+
+<span class="constant">Outputs:</span>
+  ServerDns:
+    Value: <span class="operator">!GetAtt</span><span class="comment"> # Intrinsic function `!GetAtt` refs template resource</span>
+    - Ec2Instance <span class="comment"># From template resource</span>
+    - PublicDnsName <span class="comment"># Public DNS for resource</span>
+              </pre>
+          </div>
+      </main>
+  </section>
+</div>
+</body>
+</html>
+
